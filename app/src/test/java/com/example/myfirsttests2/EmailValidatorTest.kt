@@ -40,4 +40,39 @@ class EmailValidatorTest {
     fun emailValidator_NullEmail_ReturnsFalse() {
         assertFalse(EmailValidator.isValidEmail(null))
     }
+
+    @Test
+    fun emailValidator_EmptyDomain_ReturnsFalse() {
+        assertFalse(EmailValidator.isValidEmail("name@.com"))
+    }
+
+    @Test
+    fun emailValidator_CyrillicEmail_ReturnsFalse(){
+        assertFalse(EmailValidator.isValidEmail("рус@email.ru"))
+    }
+
+    @Test
+    fun emailValidator_CyrillicDomain_ReturnsFalse(){
+        assertFalse(EmailValidator.isValidEmail("name@мейл.ru"))
+    }
+
+    @Test
+    fun emailValidator_CyrillicDomainTopLevel_ReturnsFalse(){
+        assertFalse(EmailValidator.isValidEmail("name@email.рф"))
+    }
+
+    @Test
+    fun emailValidator_SymbolEmail_ReturnsFalse(){
+        assertFalse(EmailValidator.isValidEmail("*@email.ru"))
+    }
+
+    @Test
+    fun emailValidator_SymbolDomain_ReturnsFalse(){
+        assertFalse(EmailValidator.isValidEmail("name@*.ru"))
+    }
+
+    @Test
+    fun emailValidator_SymbolDomainTopLevel_ReturnsFalse(){
+        assertFalse(EmailValidator.isValidEmail("name@email.*"))
+    }
 }
