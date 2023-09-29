@@ -35,5 +35,9 @@ class EmailValidator : TextWatcher {
         fun isValidEmail(email: CharSequence?): Boolean {
             return email != null && EMAIL_PATTERN.matcher(email).matches()
         }
+
+        fun sum(a: Int, b: Int): Int {
+            return a+b
+        }
     }
 }

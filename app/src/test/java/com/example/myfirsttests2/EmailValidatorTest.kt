@@ -76,3 +76,15 @@ class EmailValidatorTest {
         assertFalse(EmailValidator.isValidEmail("name@email.*"))
     }
 }
+
+class SumFunTest {
+    @Test
+    fun checkTwoPlusTwo(){
+        assertTrue(EmailValidator.sum(2,2)==4)
+    }
+
+    @Test
+    fun checkTwoPlusTwoFalse(){
+        assertFalse(EmailValidator.sum(2,2)==5)
+    }
+}
